@@ -1,40 +1,42 @@
 "use client"
-export default function NewUniversity(){
 
-    async function saveUniversity(){
+export default function NewCasa() {
+
+    async function saveCasa() {
         console.log("Acessou")
-        const name = document.getElementById("name") as HTMLInputElement;
-        const abbreviation = document.getElementById("abbreviation") as HTMLInputElement;
 
-        const university = {
-            name: name.value,
-            abbreviation: abbreviation.value
+        const endereco = document.getElementById("endereco") as HTMLInputElement;
+        const anoConstrucao = document.getElementById("anoConstrucao") as HTMLInputElement;
+
+        const casa = {
+            endereco: endereco.value,
+            anoConstrucao: anoConstrucao.value
         }
 
-        await fetch(`https://69165f6da7a34288a27d2bf4.mockapi.io/university`,
+        await fetch(`https://6932104711a8738467d16909.mockapi.io/id`,
             {
-                method:"POST",
-                headers:{
+                method: "POST",
+                headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(university)
-
+                body: JSON.stringify(casa)
             }
         )
-
     }
-    return(
+
+    return (
         <div>
             <br />
-            <h1>Cadastrar Universidade</h1>
+            <h1>Cadastrar Casa</h1>
             <br />
 
-            <input type="text" id="name" placeholder="Digite o nome da Universidade" />
-            <br />
-            <input type="text" id="abbreviation" placeholder="Digite a Abreviação"/>
+            <input type="text" id="endereco" placeholder="Digite o endereço da casa" />
             <br />
 
-            <button onClick={saveUniversity}>Salvar</button>
+            <input type="number" id="anoConstrucao" placeholder="Ano da construção" />
+            <br />
+
+            <button onClick={saveCasa}>Salvar</button>
         </div>
     )
 }
